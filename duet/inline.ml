@@ -62,7 +62,7 @@ let inline_file file =
   let rec inline name = if not (Varinfo.HT.mem ht name) then
       try let func = List.find (fun f -> Varinfo.equal name f.fname) file.funcs in
         let expand_calls def = match def.dkind with
-          | Call (vo, AddrOf (Variable (tgt, OffsetFixed 0)), elst) ->
+          | Call (vo, AddrOf (Variable (tgt, OffsetNone)), elst) ->
             begin
               try expand_call func (Varinfo.HT.find ht tgt) def vo elst
               with Not_found ->
