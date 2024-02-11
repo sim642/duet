@@ -37,3 +37,5 @@ bench/results
 #tag files
 */tags
 */TAGS
+
+_opam/
